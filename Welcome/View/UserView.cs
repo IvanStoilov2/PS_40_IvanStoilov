@@ -16,7 +16,7 @@ namespace Welcome.View
             _viewModel = viewModel;
         }
         public void Display()
-        {
+        {   //
             Console.WriteLine("Welcome");
             Console.WriteLine("User: " + _viewModel.Name);
             Console.WriteLine("Role: " + _viewModel.Role);
