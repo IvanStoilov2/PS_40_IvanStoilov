@@ -12,7 +12,7 @@ namespace Welcome
         {
             User user = new User
             {
-                Name = "John Doe",
+                Name = "Ivan Stoilov",
                 Password = "password123",
                 Role = UserRolesEnum.ADMIN
             };
@@ -24,6 +24,40 @@ namespace Welcome
             userView.Display();
 
             Console.ReadKey();
+
+            try
+            {
+                var user1 = new User
+                {
+                    Name = "John Smith",
+                    Password = "password123",
+                    Role = UserRolesEnum.STUDENT
+                };
+
+                var viewModel = new UserViewModel(user1);
+
+                var view = new UserView(viewModel);
+
+                view.Display();
+
+                view.DisplayError();
+            }
+            catch (Exception e)
+            {
+                ActionOnError log = LogError;
+
+                log(e);
+            }
+            finally
+            {
+                Console.WriteLine("Executed in any case!");
+            }
+
+            static void LogError(Exception error)
+            {
+                Console.WriteLine($"Error occurred: {error.Message}");
+            }
+
         }
     }
 }
