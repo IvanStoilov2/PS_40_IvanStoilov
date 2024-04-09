@@ -7,13 +7,15 @@ using Welcome.Others;
 
 namespace Welcome.Model
 {
-    internal class User
+    public class User
     {
+        public int Id;
+        public DateTime Expires;
+
         public string Name { get; set; }
         public string Password { get; set; }
 
         public UserRolesEnum Role { get; set; }
         
-
     }
 }
